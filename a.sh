@@ -6,6 +6,12 @@ SELFDIR = $(dirname"$0")
 cd "$SELFDIR"
 
 #初始化vim配置
-cp -R HOME_vim ~./vim
+cp -R HOME_vim ~/.vim
 cp vimrc ~/.vimrc
 
+#复制bash配置文件
+cp profile ~/.profile
+cp bashrc ~/. bahsrc
+
+#初始化nano配置
+cp nanorc ~/.nanorc
