@@ -17,6 +17,16 @@ cp profile ~/.profile
 cp bashrc ~/. bahsrc
 echo"bahs配置成功"
 
+#并没有进行自动让bash配置文件生效的操作
+#去掉以下两行注释可以自动加载bash文件
+# . ~/.profile
+# . ~/.bashrc
+
+#复制bash文件
+echo '更新bash配置文件'
+cp profile ~/.profile
+cp bashrc ~./bashrc
+
 #初始化nano配置
 echo"初始化nano"
 cp nanorc ~/.nanorc
@@ -33,4 +43,12 @@ cd
 		mkdir "$d"
 	fi
 done
+
+#如果主目录存在mysh目录，则只复制其中的内容到mysh，否则复制整个mysh目录到主目录
+cd $SELFDIR
+if [-d "$HOME/mysh ] ; then
+	cp -R mysh/* $HOME/mysh/
+else
+	cp -R mysh $HOME/
+fi
 
