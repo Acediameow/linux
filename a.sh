@@ -1,6 +1,9 @@
 #!/bin/bash
 #不涉及sudo以及su的root操作
+#通过变量保存当前脚本所在的目录
+CURDIR=‘pwd’
 SELFDIR = $(dirname"$0")
+SELFDIR = $CURDIR/$SELFDIR
 
 #切换到脚本所在的目录
 cd "$SELFDIR"
@@ -47,8 +50,6 @@ done
 #如果主目录存在mysh目录，则只复制其中的内容到mysh，否则复制整个mysh目录到主目录
 cd $SELFDIR
 if [-d "$HOME/mysh ] ; then
-	cp -R mysh/* $HOME/mysh/
+	cp -R ./mysh/* $HOME/mysh/
 else
-	cp -R mysh $HOME/
-fi
-
+	cp -R ./mysh/ $HOME/
